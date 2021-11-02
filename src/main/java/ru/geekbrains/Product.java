@@ -26,6 +26,6 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product: '" + title + "' id: " + id + ", cost = " + cost;
+        return id + ". " + title + ": " + cost + "руб.";
     }
 }
