@@ -23,5 +23,6 @@ public class OutTenProducts extends HttpServlet {
         for (int i = 0; i<name.length; i++)  {
             resp.getWriter().println("<h3>" + new Product(i+1, name[i], cost[i]) + "<h3>");
         }
+        resp.getWriter().close();
     }
 }
