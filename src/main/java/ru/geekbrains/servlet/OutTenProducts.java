@@ -1,8 +1,11 @@
 package ru.geekbrains.servlet;
 
+import org.slf4j.LoggerFactory;
 import ru.geekbrains.Product;
 
-import javax.jws.WebService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,8 +16,13 @@ import java.io.IOException;
 @WebServlet(name = "OutTenProducts", urlPatterns = "/ten_products" )
 public class OutTenProducts extends HttpServlet {
 
+    private static Logger logger = LoggerFactory.getLogger(OutTenProducts.class);
+    private int count_requests;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        count_requests++;
+        logger.info(count_requests + " Product Request");
         String [] name = {"Молоко", "Крендель", "Творог",
                            "Пицца", "Хлеб булочный", "Гречка 5кг", "Цитрус",
                             "Лосось 4кг", "Головач гриб", "Кальмар сушеный"};
